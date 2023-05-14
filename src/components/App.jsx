@@ -28,16 +28,17 @@ for (let i = 1; i <= 60; i++) {
 }
 
 const App = () => {
-    const [breakTime, setBreak] = useState(5);
+    const [breakTime, setBreak] = useState(25);
     const [workTime, setWork] = useState(25);
 
     const [minutes, setMinutes] = useState(25);
-    const [seconds, setSeconds] = useState(60 * workTime);
+    const [seconds, setSeconds] = useState(60 * 25);
 
-    const [workBool, setWorkBool] = useState(true);
+    const [workBool, setWorkBool] = useState(false);
     const [breakBool, setBreakBool] = useState(false);
 
     const [startCount, setStart] = useState(false);
+    const [startAnimation, setAnimation] = useState(false);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -48,10 +49,11 @@ const App = () => {
                     setBreakBool(false);
                     setWorkBool(true);
                     setStart(false);
+                    setAnimation(true);
                     setMinutes(25);
                     setWork(25);
                     setBreak(5);
-                    setSeconds(60 * workTime);
+                    setSeconds(60 * 25);
                 }
 
                 if (workBool && minutes > 0)
@@ -59,6 +61,7 @@ const App = () => {
                 if (minutes == 0 && seconds == 0 && workBool) {
                     setBreakBool(true);
                     setWorkBool(false);
+                    setAnimation(true);
                     setMinutes(breakTime);
                     setSeconds(0);
                     setSeconds(60 * breakTime);
@@ -102,6 +105,8 @@ const App = () => {
     };
 
     const startTimer = () => {
+        setAnimation(false)
+        setWorkBool(true);
         setStart(true);
     };
 
@@ -147,7 +152,8 @@ const App = () => {
                         setBreak(5);
                         setWork(25);
                         setWorkBool(true);
-                        setBreakBool(false)
+                        setBreakBool(false);
+                        setAnimation(false);
                     }}>
                     <AiOutlineReload
                     size={32}/>
@@ -183,8 +189,8 @@ const App = () => {
                     </div>
                 </div>
             </div>
-            {/*This the clock that I'll build*/}
-            <div className="timer-container">
+            {/*This the clock that I'll build style={{ animation: !workBool && startCount ? "tilt-n-move-shaking 0.1s 50" : !breakBool && !workBool && startCount ? "tilt-n-move-shaking 0.1s 50" : "none"}}*/}
+            <div className={"timer-container " +  (startAnimation && !workBool && startCount ? "timer-work" : !breakBool && !startCount && startAnimation ? "timer-break" : "none")} >
                 <div
                     className="timer-button"
                     onClick={() => {
