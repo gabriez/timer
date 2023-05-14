@@ -21,9 +21,32 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 120px;
+    gap: 100px;
 }
 
+
+.set_time{
+    background: var(--bg-outside);
+    padding: 0px 10px 7px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.set_time h3 {
+    margin: 10px auto
+}
+
+
+.downTime {
+    margin-left: 8px;
+}
+
+.upTime {
+    margin-right: 8px;
+}
 /*---------Timer styles------------*/
 
 .timer-container{
