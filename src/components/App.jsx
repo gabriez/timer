@@ -138,12 +138,13 @@ const App = () => {
                     </a>
                     </div>
                 </div>
+                <div className="start_pause_container">
                 <a  
                     style={{ cursor: "pointer" }}
                     onClick={() => {
                         startTimer();
                     }}>
-                    <BiPlay size={45} />
+                    <BiPlay size={40} />
                 </a>
                 <a 
                     style={{ cursor: "pointer" }}
@@ -168,6 +169,7 @@ const App = () => {
                     {" "}
                     <BsPauseFill size={35} />
                 </a>
+                </div>
                 <div className="set_time">
                     <h3>Session length</h3>
                     <div>
