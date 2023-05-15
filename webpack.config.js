@@ -52,6 +52,10 @@ module.exports = {
                     'css-loader',
                     'postcss-loader'
                 ]
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif|ogg|mp3|wav)$/,
+                type: "asset/resource"
             }
         ]
     },

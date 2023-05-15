@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineReload } from "react-icons/ai";
 import { BiPlay } from "react-icons/bi";
 import { BsPauseFill } from "react-icons/bs";
+import breakAUdio from "../assets/break_time.wav";
+import alarmAudio from "../assets/alarma.wav";
 
 let timeTick = [];
 let tickDegrees = 360 / 60;
@@ -28,11 +30,11 @@ for (let i = 1; i <= 60; i++) {
 }
 
 const App = () => {
-    const [breakTime, setBreak] = useState(25);
+    const [breakTime, setBreak] = useState(5);
     const [workTime, setWork] = useState(25);
 
     const [minutes, setMinutes] = useState(25);
-    const [seconds, setSeconds] = useState(60 * 25);
+    const [seconds, setSeconds] = useState(25 * 60);
 
     const [workBool, setWorkBool] = useState(false);
     const [breakBool, setBreakBool] = useState(false);
@@ -247,6 +249,10 @@ const App = () => {
                     </div>
                 </div>
             </div>
+
+            { startAnimation && !workBool && startCount ? (<audio src={breakAUdio}  
+            autoPlay ></audio>) : !breakBool && !startCount && startAnimation ? (<audio src={alarmAudio} autoPlay ></audio>) : (<></>) }
+            
         </div>
     );
 };
