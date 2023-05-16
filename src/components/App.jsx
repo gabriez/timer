@@ -1,4 +1,5 @@
 import "../styles/index.css";
+import josefinSans from '../assets/josefinSans.ttf';
 import { useEffect, useState } from "react";
 import { AiOutlineArrowDown, AiOutlineArrowUp, AiOutlineReload } from "react-icons/ai";
 import { BiPlay } from "react-icons/bi";
@@ -26,7 +27,6 @@ for (let i = 1; i <= 60; i++) {
         </div>
     );
     tickDegrees += 360 / 60;
-    console.log(tickDegrees);
 }
 
 const App = () => {
@@ -125,7 +125,7 @@ const App = () => {
                         onClick={() => {
                             addReduceTime(true, "break");
                         }}>
-                        <AiOutlineArrowUp size={20} color="white"/>
+                        <AiOutlineArrowUp size={40} color="white"/>
                     </a>
                     {breakTime}
                     <a
@@ -134,7 +134,7 @@ const App = () => {
                         onClick={() => {
                             addReduceTime(false, "break");
                         }}>
-                        <AiOutlineArrowDown size={20} color="white"/>
+                        <AiOutlineArrowDown size={40} color="white"/>
                     </a>
                     </div>
                 </div>
@@ -179,7 +179,7 @@ const App = () => {
                             onClick={() => {
                                 addReduceTime(true, "work");
                             }}>
-                            <AiOutlineArrowUp size={20} color="white"/>
+                            <AiOutlineArrowUp size={40} color="white"/>
                         </a>
                         {workTime}
                         <a
@@ -188,7 +188,7 @@ const App = () => {
                             onClick={() => {
                                 addReduceTime(false, "work");
                             }}>
-                            <AiOutlineArrowDown size={20} color="white"/>
+                            <AiOutlineArrowDown size={40} color="white"/>
                         </a>
                     </div>
                 </div>
